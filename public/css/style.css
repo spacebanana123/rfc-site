@@ -27,6 +27,11 @@
     font-size: medium;
 }
 
+.p2 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: large;
+}
+
 .button {
     border: none;
     color: #2E4057;
@@ -39,4 +44,15 @@
     margin: 4px 2px;
     cursor: pointer;
     background-color: #B4ADEA;
+  }
+
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: lime; /* Just to visualize the extent */
+    
   }

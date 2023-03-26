@@ -1,4 +1,19 @@
 extends default
 
 block content
-    .p1 Create a new rfc.
+    form(action='/create' method='POST')
+        .p1 Title:
+        input(type='text' name='title' id=".p1")
+        .p1 Description:
+        input(type='text' name='description' id=".p1")
+        .p1 Author:
+        input(type='text' name='author' id=".p1")
+        .p1 Status:
+        input(type='text' name='status' id=".p1")
+        .p1 Text: 
+        textarea(name='text' id=".p1")
+        .p1 Notes:
+        textarea(name='notes' id=".p1")
+        br
+        <input type="submit" value="Send" id=".button"> 
+        <input type="reset" id=".button">
