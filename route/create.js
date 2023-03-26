@@ -1,13 +1,16 @@
 const express = require('express');
 
 const router = express.Router();
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3()
+const { PutObjectCommand } = require("@aws-sdk/client-s3");
+const { S3Client } = require("@aws-sdk/client-s3");
+const REGION = "us-east-2";
+const client = new S3Client({region: REGION})
 const { v4: uuidv4 } = require('uuid');
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 const querystring = require('querystring'); 
+
 
 router.use((req, res, next) => {
 
@@ -41,25 +44,24 @@ router.get('/', (req, res) => {
     }
 );
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log(req.body);
     const { title, description, author, status, text, notes } = req.body;
     const date = new Date().toISOString();
     const json = JSON.stringify({ title, description, author, date, status, text, notes });
-    const key = `${uuidv4()}.json`;
+    const key = `${uuidv4()}`;
     console.log("Key is:" + key);
-    const params = {
+    const command = new PutObjectCommand({
+        Bucket: "cyclic-erin-seagull-gown-us-east-2",
+        Key: key,
         Body: json,
-        Bucket: 'cyclic-erin-seagull-gown-us-east-2',
-        Key: key
-    }
-    s3.putObject(params, (err, data) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(data);
-        }
     });
+    try {
+        const response = await client.send(command);
+        console.log(response);
+    } catch (err) {
+        console.error(err);
+    }
     const query = querystring.stringify({
         "uuid": key,
     });

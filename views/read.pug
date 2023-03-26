@@ -1,13 +1,16 @@
 extends default
 
 block content
-    .p1 Your #{title}
-    .p1 With the uuid of: #{uuid}
     .p2 Title: #{titleRfc}
+    .p1 uuid: #{uuid}
     .p1 Description: #{description}
     .p1 Author: #{author}
     .p1 Date: #{date}
     .p1 Status: #{status}
     .p1 Text: #{text}
     .p1 Notes: #{notes}
+    .button(type="submit" onclick="window.location.href='/'") Home
+    br
     .button(type="submit" onclick="window.location.href='/create'") Create a new rfc
+    br
+    .button(type="submit" onclick="window.location.href='/list'") List all rfcs
