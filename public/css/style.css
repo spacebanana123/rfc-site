@@ -62,6 +62,13 @@
     background-color: #98BBFC;
 }
 
+.hr {
+    border: 2px solid #091540;
+    border-radius: 4px;
+    color: #091540;
+    margin: 0.5%;
+}
+
 body {
     background-color: #7692FF;
 }

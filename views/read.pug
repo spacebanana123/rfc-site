@@ -1,13 +1,16 @@
 extends default
 
 block content
-    .p2 Title: #{titleRfc}
+    .p1 Title: #{titleRfc}
     .p1 uuid: #{uuid}
     .p1 Description: #{description}
     .p1 Author: #{author}
     .p1 Date: #{date}
     .p1 Status: #{status}
-    .p1 Text:!{text}
+    .p1 Text: 
+    .hr
+    .p1 !{text}
+    .hr
     .p1 Notes: #{notes}
     .button(type="submit" onclick="window.location.href='/'") Home
     br
