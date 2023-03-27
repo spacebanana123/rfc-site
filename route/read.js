@@ -2,9 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const { GetObjectCommand, S3Client } = require("@aws-sdk/client-s3");
-
 const REGION = "us-east-2";
 const client = new S3Client({region: REGION})
+const DOMPurify = require('isomorphic-dompurify');
+const marked = require('marked');
 
 router.get('/', async (req, res) => {
     const uuid = String(req.query.uuid);
@@ -27,6 +28,7 @@ router.get('/', async (req, res) => {
         const status = json.status;
         const text = json.text;
         const notes = json.notes;
+        const cleanMarkdown = DOMPurify.sanitize(marked.parse(text));
         res.render('read', { 
             title: 'RFC Read', 
             uuid: uuid,
@@ -35,7 +37,7 @@ router.get('/', async (req, res) => {
             author: author,
             date: date,
             status: status,
-            text: text,
+            text: cleanMarkdown,
             notes: notes
         });
     } catch (err) {

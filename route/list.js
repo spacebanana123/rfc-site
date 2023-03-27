@@ -5,6 +5,7 @@ const { ListObjectsV2Command } = require("@aws-sdk/client-s3");
 const { S3Client } = require("@aws-sdk/client-s3");
 const REGION = "us-east-2";
 const client = new S3Client({region: REGION})
+const DOMPurify = require('isomorphic-dompurify');
 
 router.get('/', async (req, res) => {
     const command = new ListObjectsV2Command({
@@ -29,10 +30,11 @@ router.get('/', async (req, res) => {
         let filter = filter1.filter(filter1 => filter1 != "cyclic-db/ac81e671/stream_lambda.zip");
         contents = filter.join("<br/>• ")
         contents = "• " + contents;
+        let clean = DOMPurify.sanitize(contents);
         res.render('list',
             {
                 title: 'RFC List',
-                contents: contents
+                contents: clean
             }
         )
     
