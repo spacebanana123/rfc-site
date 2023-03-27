@@ -1,7 +1,7 @@
 extends default
 
 block content
-    form(action='/create' method='POST' class="create")
+    form(action='/create' method='POST' class="form")
         .p1 Title:
         input(type='text' name='title' id=".p1")
         .p1 Description:
@@ -17,5 +17,4 @@ block content
         br
         <input type="submit" value="Submit" class="button"> 
         <input type="reset" class="button">
-    .button(type="submit" onclick="window.location.href='/'") Home
-    .button(type="submit" onclick="window.location.href='/list'") List all rfcs
+

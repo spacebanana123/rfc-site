@@ -28,8 +28,10 @@ router.get('/', async (req, res) => {
         list.pop();
         let filter1 = list.filter(list => list.length == 36);
         let filter = filter1.filter(filter1 => filter1 != "cyclic-db/ac81e671/stream_lambda.zip");
-        contents = filter.join("<br/>• ")
-        contents = "• " + contents;
+        contents = "";
+        for (let i = 0; i < filter.length; i++) {
+            contents += `• ${filter[i]} - <a href="/read?uuid=${filter[i]}" class="a1">[Link]</a><br>`;
+        }
         let clean = DOMPurify.sanitize(contents);
         res.render('list',
             {

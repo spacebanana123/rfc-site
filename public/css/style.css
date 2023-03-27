@@ -54,7 +54,7 @@
     border-radius: 4px;
 }
 
-.create {
+.form {
     border: none;
     cursor: pointer;
     margin: 4px 2px;
@@ -68,6 +68,26 @@
     border-radius: 4px;
     color: #091540;
     margin: 0.5%;
+}
+
+.a1 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: medium;
+    color: #136F63;
+}
+
+.a1:visited {
+    color: #136F63;
+}
+
+
+.a1:hover {
+    color: #abd2fa;
+}
+
+
+.a1:active {
+    color: #abd2fa;
 }
 
 body {

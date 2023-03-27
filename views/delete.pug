@@ -1,0 +1,10 @@
+extends default
+
+block content
+    .p1 Enter the uuid of the rfc you want to delete:
+    form(action='/read' method='POST' class="form")
+        .p1 uuid:
+        input(type='text' name='uuid' id=".p1")
+        br
+        input(type="submit" value="Submit" class="button")
+        input(type="reset" class="button")
