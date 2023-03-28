@@ -44,6 +44,7 @@ router.get('/', async (req, res) => {
     
       } catch (err) {
         console.error(err);
+        res.redirect('/error');
       }
 });
 exports.list = router;

@@ -1,7 +1,7 @@
 extends default
 
 block content
-    form(action='/create' method='POST' class="form")
+    form(action='/respond' method='POST' class="form")
         .p1 Title:
         input(type='text' name='title' id=".p1")
         .p1 Description:
@@ -13,6 +13,7 @@ block content
         .p1 Notes:
         input(type='text' name='notes' id=".p1")
         br
+        <input type='hidden' name="key" value=#{KEY}>
         <input type="submit" value="Submit" class="button"> 
         <input type="reset" class="button">
 

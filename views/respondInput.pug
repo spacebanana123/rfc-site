@@ -1,8 +1,8 @@
 extends default
 
 block content
-    .p1 Enter the uuid of the rfc you want to delete:
-    form(action='/delete' method='POST' class="form")
+    .p1 Enter the uuid of the rfc you want to respond to:
+    form(action='/respond' method='GET' class="form")
         .p1 uuid:
         input(type='text' name='uuid' id=".p1")
         br

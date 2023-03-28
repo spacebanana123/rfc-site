@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
             const description = json.description;
             const author = json.author;
             const date = json.date;
-            const status = json.status;
+            const responseRfc = json.responseRfc;
             const text = json.text;
             const notes = json.notes;
             const cleanMarkdown = DOMPurify.sanitize(marked.parse(text));
@@ -43,12 +43,13 @@ router.get('/', async (req, res) => {
                 description: description,
                 author: author,
                 date: date,
-                status: status,
+                responseRfc: responseRfc,
                 text: cleanMarkdown,
                 notes: notes
             });
         } catch (err) {
             console.error(err);
+            res.redirect('/error');
         }  
     }
 });
