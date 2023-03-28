@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const router = express.Router();
@@ -6,7 +7,7 @@ const REGION = "us-east-2";
 const client = new S3Client({region: REGION})
 const DOMPurify = require('isomorphic-dompurify');
 const marked = require('marked');
-const { render } = require('pug');
+const BUCKET = process.env.BUCKET;
 
 router.get('/', async (req, res) => {
     const uuid = String(req.query.uuid);
@@ -17,7 +18,7 @@ router.get('/', async (req, res) => {
     } else {
         console.log(uuid);
         const command = new GetObjectCommand({
-            Bucket: "cyclic-erin-seagull-gown-us-east-2",
+            Bucket: BUCKET,
             Key: uuid
         });
         

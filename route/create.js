@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const router = express.Router();
@@ -10,6 +11,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 const querystring = require('querystring'); 
+const BUCKET = process.env.BUCKET;
 
 
 router.use((req, res, next) => {
@@ -52,7 +54,7 @@ router.post('/', async (req, res) => {
     const key = `${uuidv4()}`;
     console.log("Key is:" + key);
     const command = new PutObjectCommand({
-        Bucket: "cyclic-erin-seagull-gown-us-east-2",
+        Bucket: BUCKET,
         Key: key,
         Body: json,
     });

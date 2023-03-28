@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const router = express.Router();
@@ -6,10 +7,11 @@ const { S3Client } = require("@aws-sdk/client-s3");
 const REGION = "us-east-2";
 const client = new S3Client({region: REGION})
 const DOMPurify = require('isomorphic-dompurify');
+const BUCKET = process.env.BUCKET;
 
 router.get('/', async (req, res) => {
     const command = new ListObjectsV2Command({
-        Bucket: "cyclic-erin-seagull-gown-us-east-2",
+        Bucket: BUCKET,
         // The default and maximum number of keys returned is 1000.
       });
     
