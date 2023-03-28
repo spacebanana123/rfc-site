@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
 
   try {
     const response = await client.send(command);
-    console.log(response);
+    await console.log(response);
     res.render('deleted', {
       title: 'RFC Deleted',
       uuid: uuid
