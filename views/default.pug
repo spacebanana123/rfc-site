@@ -9,10 +9,10 @@ html
     body
       .h1= title
       .h4 A Matt Peng Production
-      .button(type="submit" onclick="window.location.href='/'") Home
-      .button(type="submit" onclick="window.location.href='/create'") Create a new rfc
-      .button(type="submit" onclick="window.location.href='/list'") List all rfcs
-      .button(type="submit" onclick="window.location.href='/read'") Read an rfc   
-      .button(type="submit" onclick="window.location.href='/respond'") Respond to an rfc
-      .button(type="submit" onclick="window.location.href='/delete'") Delete an rfc
+      a(href='/' class="button") Home
+      a(href='/create' class="button") Create an rfc
+      a(href='/list' class="button") List all rfcs
+      a(href='/read' class="button") Read an rfc   
+      a(href='/respond' class="button") Respond to an rfc
+      a(href='/delete' class="button") Delete an rfc
       block content
