@@ -15,11 +15,10 @@ exports.BUCKET = BUCKET;
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.render('index', { 
     title: 'RFC', 
     });
-  next()
 });
 app.use('/create', create);
 app.use('/read', read);
@@ -28,7 +27,7 @@ app.use('/delete', deleteRfc);
 app.use('/error', error);
 app.use('/respond', respondRfc);
 
-app.use(function(req, res, next) {
+app.use(function(req, res,) {
   res.status(404);
   res.render('404', {
     title: '404'
