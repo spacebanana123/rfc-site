@@ -29,7 +29,8 @@ app.use('/error', error);
 app.use('/respond', respondRfc);
 
 app.use(function(req, res, next) {
-  res.status(404).render('404', {
+  res.status(404);
+  res.render('404', {
     title: '404'
   });
 });
