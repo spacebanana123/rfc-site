@@ -71,7 +71,7 @@ router.post('/', async (req, res) => {
     console.log(req.body);
     const { title, description, author, text, notes, key } = req.body;
     const date = new Date().toISOString();
-    const response = "";
+    const responseRfc = "";
     const json = JSON.stringify({ title, description, author, date, responseRfc, text, notes, key});
     console.log("Key is:" + key);
     const command = new PutObjectCommand({
