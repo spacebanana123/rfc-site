@@ -37,9 +37,9 @@ router.get('/', async (req, res) => {
             const date = json.date;
             let responseRfc;
             if (json.response != undefined){
-                responseRfc = `${json.response}<br>• ${uuid} - <a href="/read?uuid=${key}" class="a1">[Link]</a>`;
+                responseRfc = `${json.response}<br>• ${key} - <a href="/read?uuid=${key}" class="a1">[Link]</a>`;
             } else {
-                responseRfc = `<br>• ${uuid} - <a href="/read?uuid=${key}" class="a1">[Link]</a>`;
+                responseRfc = `<br>• ${key} - <a href="/read?uuid=${key}" class="a1">[Link]</a>`;
             }
             const text = json.text;
             const notes = json.notes;
